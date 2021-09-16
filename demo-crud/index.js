@@ -16,7 +16,7 @@ var mysqlConnection = mysql.createConnection({
 /*retorna los datos del estudiante*/
 app.get('/',(req,res)=>{
     console.log('retornar datos de los estudiante')
-    mysqlConnection.query('select e.id, p.nombre, e.carnet from escuela.estudiante e join escuela.persona p on e.id_persona=p.id;',(err,rows,fields)=>{
+    mysqlConnection.query('select e.id, p.nombre, e.carnet from zr0qgoqrnfqyemn0.estudiante e join zr0qgoqrnfqyemn0.persona p on e.id_persona=p.id;',(err,rows,fields)=>{
         if(!err){
             res.send(rows);
         }else{
@@ -100,7 +100,7 @@ app.delete('/personas/:id',(req,res)=>{
 /*Get-Maestros*/
 app.get('/maestros',(req,res)=>{
     console.log('get lista maestros')
-    mysqlConnection.query('select d.id, d.id_persona, d.fecha_ingreso, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion from escuela.docente d join escuela.persona p on d.id_persona=p.id;',(err,rows,fields)=>{
+    mysqlConnection.query('select d.id, d.id_persona, d.fecha_ingreso, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion from zr0qgoqrnfqyemn0.docente d join zr0qgoqrnfqyemn0.persona p on d.id_persona=p.id;',(err,rows,fields)=>{
         if(!err){
             res.send(rows);
         }else{
@@ -112,7 +112,7 @@ app.get('/maestros',(req,res)=>{
 /*Get-id-Maestros*/
 app.get('/maestros/:id',(req,res)=>{
     console.log('get maestro')
-    mysqlConnection.query('select d.id, d.id_persona, d.fecha_ingreso, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion from escuela.docente d join escuela.persona p on d.id_persona=p.id where d.id = ?;',[req.params.id],(err,rows,fields)=>{
+    mysqlConnection.query('select d.id, d.id_persona, d.fecha_ingreso, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion from zr0qgoqrnfqyemn0.docente d join zr0qgoqrnfqyemn0.persona p on d.id_persona=p.id where d.id = ?;',[req.params.id],(err,rows,fields)=>{
         if(!err){
             res.send(rows);
         }else{
@@ -171,7 +171,7 @@ app.delete('/maestros/:id',(req,res)=>{
 /*Get-Estudiantes*/
 app.get('/estudiantes',(req,res)=>{
     console.log('get lista estudiantes')
-    mysqlConnection.query('select e.id, e.id_persona, e.fecha_ingreso, e.carnet, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion, e.status from escuela.estudiante e join escuela.persona p on e.id_persona=p.id;',(err,rows,fields)=>{
+    mysqlConnection.query('select e.id, e.id_persona, e.fecha_ingreso, e.carnet, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion, e.status from zr0qgoqrnfqyemn0.estudiante e join zr0qgoqrnfqyemn0.persona p on e.id_persona=p.id;',(err,rows,fields)=>{
         if(!err){
             res.send(rows);
         }else{
@@ -183,7 +183,7 @@ app.get('/estudiantes',(req,res)=>{
 /*Get-id-Estudiante*/
 app.get('/estudiantes/:id',(req,res)=>{
     console.log('get estudiante')
-    mysqlConnection.query('select e.id, e.id_persona, e.fecha_ingreso, e.carnet, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion, e.status from escuela.estudiante e join escuela.persona p on e.id_persona=p.id where e.id = ?;',[req.params.id],(err,rows,fields)=>{
+    mysqlConnection.query('select e.id, e.id_persona, e.fecha_ingreso, e.carnet, p.nombre, p.apellido, p.fecha_nacimiento, p.Direccion, e.status from zr0qgoqrnfqyemn0.estudiante e join zr0qgoqrnfqyemn0.persona p on e.id_persona=p.id where e.id = ?;',[req.params.id],(err,rows,fields)=>{
         if(!err){
             res.send(rows);
         }else{
